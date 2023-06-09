@@ -32,3 +32,6 @@
 
 # Ignore the database.yml for preventing to share local system settings
 /config/database.yml
+
+# Ignore the byebug history
+.byebug_history
