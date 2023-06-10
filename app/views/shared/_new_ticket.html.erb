@@ -1,0 +1,25 @@
+<div class="modal fade" id="newTicketModal" tabindex="-1" aria-labelledby="newTicketModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newTicketModalLabel">Create New Ticket</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_with(url: tickets_path, id: "newTicketForm") do |form| %>
+          <%= form.fields_for :ticket_data do |ticket_data_fields| %>
+            <div class="form-group">
+              <%= ticket_data_fields.label :registration_number, class: "form-label" %>
+              <%= ticket_data_fields.text_field :car_id, class: "form-control", required: true %>
+            </div>
+          <% end %>
+        <% end %>
+        <div class="modal-footer">
+          <%= button_tag "Save", type: "submit", class: "btn btn-primary", form: "newTicketForm" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="entry-gate">
+  Entry Gate
+</div>
+<div class="parking-slots">
+  <div class="row">
+    <% @grouped_slots.each do |name, slots| %>
+      <div class="col-md-2">
+        <div class="slot-column">
+          <% slots.each do |slot| %>
+            <div class="card <%= slot['is_empty'] ? 'bg-light' : 'bg-danger' %> text-white"
+                  style="border: 1px solid #000; border-radius: 10px; margin-bottom: 10px;">
+              <div class="card-body text-center">
+                <h5 class="card-title"><%= slot['name'] %></h5>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

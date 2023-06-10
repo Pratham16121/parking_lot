@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render partial: "shared/functions" %>
+    </div>
+    <div class="col-md-9">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Existing Cars</h5>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Registration Number</th>
+                <th>Color</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @cars_details[:cars].each do |car| %>
+                <tr>
+                  <td><%= car['registration'] %></td>
+                  <td><%= car['color'] %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
