@@ -6,10 +6,10 @@ class Ticket < ApplicationRecord
   private
 
   def fill_slot
-    self.slot.update!(is_empty: false)
+    self.slot.update!(is_empty: false, ticket_id: self.id)
   end
 
   def empty_slot
-    self.slot.update!(is_empty: true)
+    self.slot.update!(is_empty: true, ticket_id: nil)
   end
 end
