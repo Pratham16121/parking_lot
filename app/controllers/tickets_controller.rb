@@ -1,7 +1,12 @@
 class TicketsController < ApplicationController
   def create
     result = Tickets::Create.new(ticket_params).call
-    render json: result, status: result[:status]
+    if result[:status] == 200
+      flash[:success] = "Ticket saved. Slot Alloted"
+    else
+      flash[:error] = "error"
+    end
+    redirect_to root_path
   end
 
   def update

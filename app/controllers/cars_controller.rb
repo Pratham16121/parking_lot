@@ -1,12 +1,17 @@
 class CarsController < ApplicationController
   def create
     result = Cars::Create.new(cars_params).call
-    render json: result, status: result[:status]
+    if result[:status] == 200
+      flash[:success] = "Car saved"
+    else
+      flash[:error] = "error"
+    end
+    redirect_to root_path
   end
 
   def index
     result = Cars::Index.new(search_parmas).call
-    render json: result, status: result[:status]
+    @cars_details = result
   end
 
   private
