@@ -42,10 +42,6 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-# Use of rspec API Doc for creation of document
-gem 'rspec_api_documentation'
-gem 'rspec-rails'
-
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -55,6 +51,10 @@ gem 'rspec-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  # Use of rspec API Doc for creation of document
+  gem 'rspec_api_documentation'
+  gem 'rspec-rails'
 end
 
 group :development do
