@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :cars, only: [:create, :index]
+  resources :tickets, only: [:create, :update]
 end
