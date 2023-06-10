@@ -3,7 +3,6 @@ module Tickets
     def initialize(params, id)
       @id = id
       @is_deleted = params[:is_deleted] if params[:is_deleted]
-      @assigned_slot = params[:assigned_slot] if params[:is_deleted]
     end
 
     def call
@@ -14,7 +13,6 @@ module Tickets
 
       updates = {}
       updates[:is_deleted] = @is_deleted if @is_deleted.present?
-      updates[:assigned_slot] = @assigned_slot if @assigned_slot.present?
 
       if ticket.update(updates)
         { success_message: "Ticket updated successfully", status: 200 }

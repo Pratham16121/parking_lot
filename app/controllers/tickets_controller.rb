@@ -12,6 +12,6 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket_data).permit(:id, :car_id, :assigned_slot, :is_deleted)
+    params.require(:ticket_data).permit(:id, :car_id, :is_deleted)
   end
 end
