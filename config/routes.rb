@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   resources :cars, only: [:create, :index]
   resources :tickets, only: [:create, :update]
+  resources :slots, only: [:index]
 end
