@@ -17,7 +17,7 @@ module Tickets
       if ticket.update(updates)
         { success_message: "Ticket updated successfully", status: 200 }
       else
-        { error_message: newTicket.errors.full_messages, status: 400 }
+        { error_message: ticket.errors.full_messages.join(", "), status: 400 }
       end
     end
   end  

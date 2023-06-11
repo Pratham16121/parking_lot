@@ -11,8 +11,8 @@
         <%= form_with(url: tickets_path, id: "newTicketForm") do |form| %>
           <%= form.fields_for :ticket_data do |ticket_data_fields| %>
             <div class="form-group">
-              <%= ticket_data_fields.label :registration_number, class: "form-label" %>
-              <%= ticket_data_fields.text_field :car_id, class: "form-control", required: true %>
+              <%= ticket_data_fields.label :registration, class: "form-label" %>
+              <%= ticket_data_fields.text_field :registration, class: "form-control", required: true %>
             </div>
           <% end %>
         <% end %>

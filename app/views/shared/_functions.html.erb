@@ -3,13 +3,16 @@
   <a class="list-group-item list-group-item-action" data-toggle="modal" data-target="#addCarModal">Add Car</a>
   <a class="list-group-item list-group-item-action" data-toggle="modal" data-target="#newTicketModal">New Ticket</a>
   <a href="<%= cars_path %>" class="list-group-item list-group-item-action">All Cars</a>
-  <div id="flash-message" class="alert">
-    <% if flash[:success].present? %>
-      <div class="alert alert-success"><%= flash[:success] %></div>
-    <% elsif flash[:error].present? %>
-      <div class="alert alert-danger"><%= flash[:error] %></div>
-    <% end %>
-  </div>
+  
+  <% if flash[:success].present? || flash[:error].present? %>
+    <div id="flash-message" class="alert">
+      <% if flash[:success].present? %>
+        <div class="alert alert-success"><%= flash[:success] %></div>
+      <% elsif flash[:error].present? %>
+        <div class="alert alert-danger"><%= flash[:error] %></div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
 

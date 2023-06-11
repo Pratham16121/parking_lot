@@ -10,11 +10,13 @@
             <div class="card <%= slot['is_empty'] ? 'bg-light' : 'bg-danger' %> text-white"
                   style="border: 1px solid #000; border-radius: 10px; margin-bottom: 10px; overflow: hidden">
               <% if !slot['is_empty'] %>
-                <%= form_with url: tickets_path(slot["ticket_id"]), method: :put, remote: true do |f| %>
-                  <%= f.hidden_field :is_deleted, value: true %>
+                <%= form_with(url: ticket_path(slot["ticket_id"]), method: :put, remote: true) do |f| %>
+                  <%= f.fields_for :ticket_data do |ticket_data_fields| %>
+                    <%= ticket_data_fields.hidden_field :is_deleted, value: true %>
+                  <% end %>
                   <div class="card-body text-center">
                     <h5 class="card-title"><%= slot['name'] %></h5>
-                    <%= f.button type: :submit, class: "btn btn-danger btn-sm btn-block" do %>
+                    <%= f.button(type: :submit, class: "btn btn-danger btn-sm btn-block") do %>
                       Delete
                     <% end %>
                   </div>

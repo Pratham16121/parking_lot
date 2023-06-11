@@ -4,7 +4,7 @@ class CarsController < ApplicationController
     if result[:status] == 200
       flash[:success] = "Car saved"
     else
-      flash[:error] = "error"
+      flash[:error] = result[:error_message]
     end
     redirect_to root_path
   end

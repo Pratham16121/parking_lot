@@ -10,7 +10,7 @@ module Cars
       if newCar.save
         { success_message: "Car saved successfully", status: 200 }
       else
-        { error_message: newCar.errors.full_messages, status: 400 }
+        { error_message: newCar.errors.full_messages.join(", "), status: 400 }
       end
     end
   end
