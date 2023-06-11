@@ -15,7 +15,7 @@ module Tickets
 
       newTicket = Ticket.new(car_id: @car_id, assigned_slot: assigned_slot[:slot])
       if newTicket.save
-        { success_message: I18n.t('ticket.success.create') }, status: 200 }
+        { success_message: I18n.t('ticket.success.create'), status: 200 }
       else
         { error_message: newTicket.errors.full_messages.join(", "), status: 400 }
       end
