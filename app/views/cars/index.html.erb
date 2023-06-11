@@ -5,6 +5,22 @@
         <%= render partial: "shared/functions" %>
       </div>
       <div class="col-md-9">
+        <div class="card mt-4">
+          <div class="card-body">
+            <h5 class="card-title">Search Car</h5>
+            <%= form_tag(cars_path, method: :get, class: 'form-inline') do %>
+              <div class="form-group mx-sm-2">
+                <%= label_tag(:registration, 'Registration Number') %>
+                <%= text_field_tag(:registration, nil, class: 'form-control') %>
+              </div>
+              <div class="form-group mx-sm-2">
+                <%= label_tag(:color, 'Color') %>
+                <%= text_field_tag(:color, nil, class: 'form-control') %>
+              </div>
+              <%= submit_tag('Search', class: 'btn btn-primary') %>
+            <% end %>
+          </div>
+        </div>
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Existing Cars</h5>
@@ -15,12 +31,18 @@
                   <th>Color</th>
                 </tr>
               </thead>
-              <tbody>
-                <% @cars_details[:cars].each do |car| %>
-                  <tr>
-                    <td><%= car['registration'] %></td>
-                    <td><%= car['color'] %></td>
-                  </tr>
+             <tbody>
+                <% if @cars_details[:success] %>
+                  <% @cars_details[:cars].each do |car| %>
+                    <% if car[:is_parked] %>
+                    <tr class="success">
+                    <% else %>
+                    <tr>
+                    <% end %>
+                      <td><%= car['registration'] %> </td>
+                      <td><%= car['color'] %></td>
+                    </tr>
+                  <% end %>
                 <% end %>
               </tbody>
             </table>

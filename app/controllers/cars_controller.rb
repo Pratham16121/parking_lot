@@ -11,6 +11,9 @@ class CarsController < ApplicationController
 
   def index
     result = Cars::Index.new(search_parmas).call
+    unless result[:success]
+      flash[:error] = result[:error_message]
+    end    
     @cars_details = result
   end
 
