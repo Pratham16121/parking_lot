@@ -31,6 +31,11 @@ resource 'Tickets' do
       do_request(ticket_data: ticket_data)
       expect(Ticket.all.count).to eq 1
     end
+    example 'Creating a ticket when there are no empty slots' do
+      Slot.update_all(is_empty: false)
+      do_request(ticket_data: ticket_data)
+      expect(Ticket.all.count).to eq 1
+    end
   end
 
   put '/tickets/:id' do

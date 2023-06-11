@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cars API</title>
+    <title>Tickets API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,12 +106,39 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Cars API</h1>
+      <h1>Tickets API</h1>
 
       <div class="article">
-        <h2>Listing cars with parameters</h2>
-        <h3>GET /cars</h3>
+        <h2>Creating a ticket when there are no empty slots</h2>
+        <h3>POST /tickets</h3>
 
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                    <span class="name">registration</span>
+                </td>
+                <td>
+                  <span class="description">Registration Number</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">ticket[ticket_data]</span>
+                </td>
+                <td>
+                  <span class="description">Ticket data</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
 
           <h3>Request</h3>
@@ -119,14 +146,15 @@ table th, table td {
             <h4>Headers</h4>
             <pre class="request headers">Version: HTTP/1.0
 Host: example.org
+Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET /cars?registration=MP09BE0503</pre>
+          <pre class="request route highlight">POST /tickets</pre>
 
-            <h4>Query Parameters</h4>
-            <pre class="request query_parameters highlight">registration: MP09BE0503</pre>
 
+            <h4>Body</h4>
+            <pre class="request body">registration=MP09BE0509&ticket[ticket_data][registration]=MP09BE0509&ticket_data[registration]=MP09BE0509</pre>
 
 
             <h3>Response</h3>
@@ -137,15 +165,15 @@ X-Content-Type-Options: nosniff
 X-Download-Options: noopen
 X-Permitted-Cross-Domain-Policies: none
 Referrer-Policy: strict-origin-when-cross-origin
-Link: &lt;/assets/application-e0cf9d8fcb18bf7f909d8d91a5e78499f82ac29523d475bf3a9ab265d5e2b451.css&gt;; rel=preload; as=style; nopush,&lt;/assets/es-module-shims.min-4ca9b3dd5e434131e3bb4b0c1d7dff3bfd4035672a5086deec6f73979a49be73.js&gt;; rel=preload; as=script; nopush
+Location: http://example.org/
 Content-Type: text/html; charset=utf-8
-ETag: W/&quot;f2f7c6351775d238c19cf5793b15f31e&quot;
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 97743bc3-4fdb-4d5c-a0ce-32217f441e53
-X-Runtime: 0.006489
-Content-Length: 6201</pre>
+Cache-Control: no-cache
+Set-Cookie: _parking_lot_session=b%2FgCNVz08Mfb%2BqRNIt%2B%2F4GJuRpBnkGfmYo%2FdGY5c%2F5tUylfXfdJePC5X7AqF3I8xtQYqw70885JU3VHekvKtZg9CDsG1HK%2FcciPCXgrXeZoE9%2B0dChYH0ezX37NekEfLXUP525jX6%2Fpbda%2BWt3%2BYJbAhXQDhjE82uhjh%2Bgv5jP2%2BasCDViJpgL7wZIv%2FoTrcPEWmmf0GNBTO6B5C%2FP0IKTZcIHZiepiccl9zWQyElCg3BYDa654g%2FBD4L9XlaodNXo31Y1U7tyY3FR%2B2qKci6qx6UME0sKmgByZTBmbXR0PXTzaReIkipHmZOhyxQMj%2BZ%2Fn13hUggM1xIl2R9kBKVZI8i6w2xvf02Y2OBs3X9WI%3D--%2Bksj7ejdZBFiHjpR--%2Bq11zY7zoHNKn8TsE%2Bdwag%3D%3D; path=/; HttpOnly; SameSite=Lax
+X-Request-Id: 289cd713-40dc-4fa2-a710-756d08333abe
+X-Runtime: 0.003891
+Content-Length: 85</pre>
             <h4>Status</h4>
-            <pre class="response status">200 OK</pre>
+            <pre class="response status">302 Found</pre>
               <h4>Body</h4>
               <pre class="response body">[binary data]</pre>
       </div>
