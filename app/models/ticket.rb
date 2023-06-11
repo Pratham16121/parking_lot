@@ -1,4 +1,5 @@
 class Ticket < ApplicationRecord
+  belongs_to :car
   belongs_to :slot, foreign_key: "assigned_slot"
   after_save :fill_slot, unless: :is_deleted?
   after_update :empty_slot, if: :is_deleted?
