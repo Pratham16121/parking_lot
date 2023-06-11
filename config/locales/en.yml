@@ -30,4 +30,16 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  car:
+    success:
+      create: 'Your car has been registered'
+      index:
+    error:
+      found: 'Could not find any car with provided criteria.'
+  ticket:
+    success:
+      create: 'Your ticket is created and slot has been alloted.'
+      update: 'Ticket has been updated.'
+    error:
+      registration: 'No car is registered with this registration number. Please register.'
+      slot: 'All slots are full. Cannot allocate slots at this time.'

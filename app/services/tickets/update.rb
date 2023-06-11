@@ -15,7 +15,7 @@ module Tickets
       updates[:is_deleted] = @is_deleted if @is_deleted.present?
 
       if ticket.update(updates)
-        { success_message: "Ticket updated successfully", status: 200 }
+        { success_message: I18n.t('ticket.success.update'), status: 200 }
       else
         { error_message: ticket.errors.full_messages.join(", "), status: 400 }
       end

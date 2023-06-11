@@ -16,7 +16,7 @@ module Cars
       if cars.any?
         result = { success: true, cars: cars }
       else
-        result = { success: false, message: "No cars found with the provided criteria" }
+        result = { success: false, message: I18n.t('car.error.found') }
       end
     end
   end

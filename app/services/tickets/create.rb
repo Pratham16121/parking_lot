@@ -5,17 +5,17 @@ module Tickets
     end
 
     def call
-      return { error_message: "No car registered with this registration number" } unless Car.find_by(registration: @registration)
+      return { error_message: I18n.t('ticket.error.registration') } unless Car.find_by(registration: @registration)
       assigned_slot = find_assigned_slot
       unless assigned_slot[:success]
-        return { error_message: "Slots are full" }
+        return { error_message: I18n.t('ticket.error.slot') }
       end
 
       @car_id = Car.find_by(registration: @registration).id
 
       newTicket = Ticket.new(car_id: @car_id, assigned_slot: assigned_slot[:slot])
       if newTicket.save
-        { success_message: "Ticket saved successfully", status: 200 }
+        { success_message: I18n.t('ticket.success.create') }, status: 200 }
       else
         { error_message: newTicket.errors.full_messages.join(", "), status: 400 }
       end

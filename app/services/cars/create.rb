@@ -8,7 +8,7 @@ module Cars
     def call
       newCar = Car.new(registration: @registration, color: @color)
       if newCar.save
-        { success_message: "Car saved successfully", status: 200 }
+        { success_message: I18n.t('car.success.create'), status: 200 }
       else
         { error_message: newCar.errors.full_messages.join(", "), status: 400 }
       end

@@ -2,7 +2,7 @@ class CarsController < ApplicationController
   def create
     result = Cars::Create.new(cars_params).call
     if result[:status] == 200
-      flash[:success] = "Car saved"
+      flash[:success] = result[:success_message]
     else
       flash[:error] = result[:error_message]
     end
