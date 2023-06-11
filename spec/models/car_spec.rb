@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Car, type: :model do
   describe 'validates' do
-    let!(:car1) { Car.create!(registration: 'MP09BE0503', color: 'red')}
+    let!(:car1) { Car.create!(registration: 'MP09BE0513', color: 'red')}
     let!(:car2) { Car.create!(registration: 'MP09BE0504', color: 'black')}
     context 'registration number' do
       it 'is unique' do
