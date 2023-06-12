@@ -56,4 +56,16 @@ resource 'Tickets' do
       expect(Ticket.where(is_deleted: false).count).to eq 0
     end
   end
+
+  get '/tickets' do
+    example "Listing tickets" do
+      do_request
+      expect(status).to eq 200
+    end
+
+    example "Listing tickets with parameters" do
+      do_request({ registration: 'MP09BE0503' })
+      expect(status).to eq 200
+    end
+  end
 end

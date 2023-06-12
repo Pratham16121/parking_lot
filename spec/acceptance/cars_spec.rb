@@ -11,7 +11,7 @@ resource "Cars" do
     end
 
     example "Listing cars with parameters" do
-      do_request({ registration: 'MP09BE0503' })
+      do_request({ registration: 'MP09BE0507' })
       expect(status).to eq 200
     end
   end

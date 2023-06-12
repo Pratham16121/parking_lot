@@ -109,36 +109,9 @@ table th, table td {
       <h1>Tickets API</h1>
 
       <div class="article">
-        <h2>Creating a ticket when there are no empty slots</h2>
-        <h3>POST /tickets</h3>
+        <h2>Listing tickets with parameters</h2>
+        <h3>GET /tickets</h3>
 
-          <h3>Parameters</h3>
-          <table class="parameters table table-striped table-bordered table-condensed">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                    <span class="name">registration</span>
-                </td>
-                <td>
-                  <span class="description">Registration Number</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="required">
-                    <span class="name">ticket[ticket_data]</span>
-                </td>
-                <td>
-                  <span class="description">Ticket data</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
 
 
           <h3>Request</h3>
@@ -146,15 +119,14 @@ table th, table td {
             <h4>Headers</h4>
             <pre class="request headers">Version: HTTP/1.0
 Host: example.org
-Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">POST /tickets</pre>
+          <pre class="request route highlight">GET /tickets?registration=MP09BE0503</pre>
 
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">registration: MP09BE0503</pre>
 
-            <h4>Body</h4>
-            <pre class="request body">registration=MP09BE0509&ticket[ticket_data][registration]=MP09BE0509&ticket_data[registration]=MP09BE0509</pre>
 
 
             <h3>Response</h3>
@@ -165,15 +137,16 @@ X-Content-Type-Options: nosniff
 X-Download-Options: noopen
 X-Permitted-Cross-Domain-Policies: none
 Referrer-Policy: strict-origin-when-cross-origin
-Location: http://example.org/
+Link: &lt;/assets/application-e0cf9d8fcb18bf7f909d8d91a5e78499f82ac29523d475bf3a9ab265d5e2b451.css&gt;; rel=preload; as=style; nopush,&lt;/assets/es-module-shims.min-4ca9b3dd5e434131e3bb4b0c1d7dff3bfd4035672a5086deec6f73979a49be73.js&gt;; rel=preload; as=script; nopush
 Content-Type: text/html; charset=utf-8
-Cache-Control: no-cache
-Set-Cookie: _parking_lot_session=S4kIDLTM7EagPQBZ6KmZtFt2lyjejNTAQI%2BzwIOO6Hi7s%2Bfpa%2F2mspvUPBGMzjTesWjYX%2BZ4%2BVFCdpZv7gbAnqfNRARnsgvDU18zAYsk7mY7A94352vOCP3P%2BmVbKxTA9Yzh1PaFmMhBVt1awLZzdEBYSslO8G8T2Ea3q4OwXPfxqfj%2B9Sp984EAEOnFWycbsQSNI6r0gn64cIyo341Mq2IzgM0ODnO9aX5kTqpjE7ldLjcIFXFrUMKGZMocvfbVLFM8sTFVdwp9vqtdgwAZ6C2a0JHFUt%2BGP8%2F%2FzRfuU2rXIGA0rAxJXuVAyV8Jy%2FiZ8hbsIdXBVmiZi%2BFgG0eKnGX0uuUYJGCdHa2PeGJKcMQ%3D--%2FFGzaWp0uj207bZd--JYMvec96dvSSRGooA3IL0g%3D%3D; path=/; HttpOnly; SameSite=Lax
-X-Request-Id: c6c1fcf3-03f7-47e0-864e-f20a758a6df9
-X-Runtime: 0.003968
-Content-Length: 85</pre>
+ETag: W/&quot;eff659cd6343a2761cc4de198b7310f7&quot;
+Cache-Control: max-age=0, private, must-revalidate
+Set-Cookie: _parking_lot_session=mKHmz5VORYWeh3UvUKB7LiSvuwRXDZOH7rYEkt3wRYc4ERv1xWknU1JuZiJAN896byP8e73SFvGCuY8iNpZeOUCjf400lUPwrY0L9n%2FurWuqnESbtwg4qTASycQBNBjjxqY1WxoojZO0P0hfqqLos4P5bVm0J5nYrU80QWR1ZfpQvIEslapQ6eHKNfPxXwjd6rcAFGFEzsaJcnypQovP%2BLrhtLDFxg7wU1FJeonGa3JRuIc5gjT0bomMFw9tCdx9tc9ghq2XRAXh0lrhc4nNwfsA%2FMJ6NS9%2F5MZ15uhCdC3VOd0132arXj6vSn2GL4sSDgO9Hfv2tmji%2FWGjjFVTeeUyCFXDb2Ga--lcB5MrNJpgz%2FXQNm--zt9QmsKPGAOs1CwmxCNqHA%3D%3D; path=/; HttpOnly; SameSite=Lax
+X-Request-Id: 31c772b6-82fa-43e5-999a-8a7c48226fbc
+X-Runtime: 0.007589
+Content-Length: 7741</pre>
             <h4>Status</h4>
-            <pre class="response status">302 Found</pre>
+            <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">[binary data]</pre>
       </div>
