@@ -32,3 +32,8 @@ In the above example: 5 is the number of columns. And, 4 is the number of cars i
 - Start the server <br>
   `rails s`
 
+### Note - Test Coverage
+
+It has been evaluated that the test cases written for the application cover all possible scenarios with 98.72% coverage.
+
+For detailed coverage information, please refer to the [Coverage Report](coverage/index.html).
