@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   root "slots#index"
 
   resources :cars, only: [:create, :index]
-  resources :tickets, only: [:create, :update]
+  resources :tickets, only: [:index, :create, :update]
   resources :slots, only: [:index]
 end

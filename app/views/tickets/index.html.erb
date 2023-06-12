@@ -1,0 +1,68 @@
+<div class="container" style="display: flex; align-items: center; justify-content: center; min-height: 100vh;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <%= render partial: "shared/functions" %>
+      </div>
+      <div class="col-md-9">
+        <div class="card mt-4">
+          <div class="card-body">
+            <h5 class="card-title">Search Car</h5>
+            <%= form_tag(tickets_path, method: :get, class: 'form-inline') do %>
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <%= label_tag(:registration, 'Registration Number') %>
+                    <%= text_field_tag(:registration, nil, class: 'form-control') %>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <%= label_tag(:color, 'Color') %>
+                    <%= text_field_tag(:color, nil, class: 'form-control') %>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <%= label_tag(:slot_name, 'Slot Name') %>
+                    <%= text_field_tag(:slot_name, nil, class: 'form-control') %>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <%= submit_tag('Search', class: 'btn btn-primary') %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="card mt-4">
+          <div class="card-body">
+            <h5 class="card-title">Existing Cars</h5>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Ticket ID</th>
+                  <th>Registration</th>
+                  <th>Color</th>
+                  <th>Slot Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% if @tickets_details[:success] %>
+                  <% @tickets_details[:tickets].each do |ticket| %>
+                    <tr>
+                      <td><%= ticket.id %></td>
+                      <td><%= ticket.car.registration %> </td>
+                      <td><%= ticket.car.color %></td>
+                      <td><%= ticket.slot.name %></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

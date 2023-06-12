@@ -13,7 +13,7 @@ class CarsController < ApplicationController
     result = Cars::Index.new(search_parmas).call
     unless result[:success]
       flash[:error] = result[:error_message]
-    end    
+    end
     @cars_details = result
   end
 

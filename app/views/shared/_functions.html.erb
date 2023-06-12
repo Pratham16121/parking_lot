@@ -1,8 +1,9 @@
 <div class="list-group">
   <a href="<%= root_path %>" class="list-group-item list-group-item-action">Home</a>
-  <a class="list-group-item list-group-item-action" data-toggle="modal" data-target="#addCarModal">Add Car</a>
   <a class="list-group-item list-group-item-action" data-toggle="modal" data-target="#newTicketModal">New Ticket</a>
+  <a class="list-group-item list-group-item-action" data-toggle="modal" data-target="#addCarModal">Add Car</a>
   <a href="<%= cars_path %>" class="list-group-item list-group-item-action">All Cars</a>
+  <a href="<%= tickets_path %>" class="list-group-item list-group-item-action">All Tickets</a>
   
   <% if flash[:success].present? || flash[:error].present? %>
     <div id="flash-message" class="alert">

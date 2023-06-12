@@ -43,3 +43,4 @@ en:
     error:
       registration: 'No car is registered with this registration number. Please register.'
       slot: 'All slots are full. Cannot allocate slots at this time.'
+      found: 'Could not find any ticket with provided criteria.'
