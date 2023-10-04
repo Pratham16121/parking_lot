@@ -1,46 +1,28 @@
-As per the problem statement, I was been assigned with a task to implement a parking lot management system. I decided to implementthe same with Ruby on Rails Framework, because it is an integrated, automated testing system whcih allows the developer to test any function of the application at the time of its development, thus ensuring that it works correctly and can continue with the next step in the process.
+I have been tasked with developing a parking lot management system, and I have chosen to implement it using the Ruby on Rails framework. This choice was made because Rails provides an integrated and automated testing system that allows developers to test functions during development, ensuring correctness before moving forward. Additionally, PostgreSQL has been selected as the database system due to its speed and ability to handle large datasets and complex queries efficiently.
 
-I have chosen PostgreSQL as the database because it is known to be faster for handeling massive datasets, complicated queries, and rad write operations.
+The Parking Lot Management System operates through several key steps:
 
+Setup: During the initial setup, a fixed number of parking slots are created based on user input. Each slot is given a unique name, and the spacing between rows and slots is standardized.
 
-WORKING OF THE PROJECT
-The Parking Lot Management System follows a specific approach to efficiently manage parking lots. Here's an overview of the key steps involved:
+Car Registration: When a new car arrives, its registration number and color are registered in the system for future reference.
 
-Setup: During the initial setup at a parking location, a finite number of slots are created, taking input arguments from user. Each parking slot is assigned a unique name and the distance between each row of parking is considered as 4 units, while the distance between each slot is 1 unit.
+Ticket Generation and Parking Lot Allocation: As a registered car enters the parking lot, a ticket is generated, and the car is assigned to the nearest available slot. The ticket initially has the "is_deleted" attribute set to false, and the slot's "is_empty" status is set to false as long as the car occupies the slot. When the car leaves, the "is_deleted" attribute of the ticket is set to true, while the slot's "is_empty" status is reset to true.
 
-Car Registration: When a new car arrives, it is registered in the system by providing its registration number and color. This information is stored for future reference.
+Real-time Monitoring: The system continually monitors parking slot occupancy, providing real-time information to the parking staff to manage the parking space effectively.
 
-Ticket Generation and Parking Lot Allocation: When a registered car enters the parking lot, a ticket is generated. The ticket assigns the car to a slot that is closest to the entry point.
-When a ticket is generated, the value of is_deleted attribute of the ticket is default set to false and the value of is_empty of the slot is set to false till the time the car stays in the parking lot.
-Once the car leaves the parking lot, the value of is_deleted of the ticket is set to true as the ticket no longer holds any value, but the history is saved in the database and the value of is_empty of the slot is again set to true so that a new car can aquire the slot.
+The project consists of three main models: Ticket, Car, and Slot. A car can have multiple tickets over time, while a ticket can be assigned to only one car, establishing a one-to-many relationship. Similarly, a slot can hold one ticket at a time but can be assigned to multiple tickets, resulting in a one-to-many relationship with the Ticket model.
 
-The system continuously monitors the occupancy of parking slots and keeps track of available and occupied slots. It provides real-time information to the parking lot staff to manage the parking space effectively.
+The system employs three controllers: cars_controller, tickets_controller, and slots_controller, each with various API operations such as create, update, and index tailored to their specific requirements. Service objects have been employed to separate business logic from controllers and models, enhancing code reusability and maintainability.
 
+Rake tasks are utilized to create custom tasks for automating the creation and allocation of parking slots to cars based on the shortest distance from the entry point.
 
-DESIGN AND IMPLIMENTATION OF THE PROJECT
-The project holds three models, namely – Ticket, Car and Slot. 
-A car can have many tickets within a span of time, but a ticket can only be assigned to a single car, which describes it’s one-to-many relationship with Ticket model.
-A slot can hold one ticket at a time, but can be assigned to multiple tickets within a span of time. Hence, Slot holds one-to-many relationship to Ticket.
-Please find attached the Database Schema Design in the zip file.
-The system has three controllers - cars_controller, tickets_controller and slots_controller which contains operations defined by various API’s such as create, update and index. The API’s vary according to the requriements for each controller. 
+Regarding the queries mentioned in the problem statement, the system provides functionality to retrieve:
 
-Also, Service objects have been used to separate buisness logic from controllers and models, enabling the models to separate data layers and the controllers entry point of the API in order to re-use and maintain the code in a clean manner.
+Registration numbers of all cars of a specific color.
+Ticket number in which a car with a given registration number is placed.
+Ticket numbers of all tickets where a car of a particular color is placed.
+These queries can be executed through the "All Tickets" button with a search option when running the application on localhost. The search feature is highly versatile, allowing for searches using various parameters.
 
-Furthermore, I have used rake tasks for creating custom task to automate the creation and allocation of parking-slot to cars depending upon the shortest distance from entry point.
+For testing, the Rspec gem in Ruby is used to validate the behavior of models and services in both positive and negative scenarios. Model test cases verify relationships and validations, while acceptance test cases assess the APIs under various conditions.
 
-For the queries which were given in the problem statement, 
-- Registration numbers of all cars of a particular Color.
-- Ticket number in which a car with a given registration number is placed.
-- Ticket numbers of all tickets where a car of a particular color is placed
-When we run the application on localhost, you can find the "All Tickets" button which has the search option capable to execute all the above queries.
-The search feature is highly customizable as it can search with nearly all the parameters.
-
-
-TESTING OF THE PROJECT
-The testing is done with Rspec gem in Ruby to test the behavior of models and services for positive as well as negative scenarios.|
-Model test case have been written to verify the relations and validations for all the tables at model level.
-Acceptance test cases have been written to test the API’s in every possible scneraio.
-
-
-INTERNATIONALIZATION
-I18n has been used which is a powerful internationalization tool to support the application to different langauge culture and also to store the messages to be shown to user in a single file en.yml, and make the code look neat and clean.
+To support internationalization, I18n is employed, enabling the application to adapt to different language cultures and store user messages in a single "en.yml" file for cleaner and more organized code.
